@@ -1,0 +1,1 @@
+web: vendor/bin/botsmot public/
