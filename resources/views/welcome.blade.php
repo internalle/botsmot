@@ -59,7 +59,7 @@
         </div>
 
         <div class="links">
-            <h1>Welcome to Botsmot!</h1>
+            <h1>Welcome to Botsmot! {{config('botman.facebook.app_secret')}}</h1>
         </div>
     </div>
 </div>
