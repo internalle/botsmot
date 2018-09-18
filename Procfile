@@ -1,1 +1,1 @@
-web: vendor/bin/botsmot public/
+web: ./public
