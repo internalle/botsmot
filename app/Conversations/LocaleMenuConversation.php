@@ -15,13 +15,17 @@ class LocaleMenuConversation extends Conversation
      */
     public function askReason()
     {
+        $locals = ["Пекара","Силбо","Trend"];
         $question = Question::create("Please choose a local?")
             ->fallback('Unable to ask question')
-            ->callbackId('ask_reason')
-            ->addButtons([
+            ->callbackId('ask_reason');
+   /*         ->addButtons([
                 Button::create('Tell a joke')->value('joke'),
-            ]);
+            ]);*/
 
+   foreach ($locals as $local) {
+       $question->addButton(Button::create($local)->value('joke'));
+   }
         return $this->ask($question, function (Answer $answer) {
             if ($answer->isInteractiveMessageReply()) {
                 if ($answer->getValue() === 'joke') {
