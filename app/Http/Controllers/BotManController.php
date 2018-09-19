@@ -16,6 +16,7 @@ class BotManController extends Controller
         $botman = app('botman');
         \Log::error('test');
         \Log::error(request()->all());
+        error_log("hello, this is a test!");
         $botman->listen();
     }
 
@@ -34,6 +35,7 @@ class BotManController extends Controller
     public function startConversation(BotMan $bot)
     {
         \Log::error('test');
+        error_log("hello, this is a test!");
         \Log::error(request()->all());
         $bot->startConversation(new ExampleConversation());
     }
