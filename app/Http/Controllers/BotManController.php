@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Conversations\LocaleMenuConversation;
 use BotMan\BotMan\BotMan;
 use Illuminate\Http\Request;
 use App\Conversations\ExampleConversation;
@@ -35,5 +36,10 @@ class BotManController extends Controller
     {
         error_log(serialize(request()->all()));
         $bot->startConversation(new ExampleConversation());
+    }
+
+    public function localesMenu(BotMan $bot)
+    {
+        $bot->startConversation(new LocaleMenuConversation());
     }
 }
