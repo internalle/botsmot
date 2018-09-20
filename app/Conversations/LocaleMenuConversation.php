@@ -16,6 +16,8 @@ class LocaleMenuConversation extends Conversation
     public function askReason()
     {
         $locals = ["Пекара","Силбо","Trend"];
+
+        $foods = ["Погача","Ѓеврек","Дебармалски"];
         $question = Question::create("Please choose a local?")
             ->fallback('Unable to ask question')
             ->callbackId('ask_reason');
@@ -24,7 +26,7 @@ class LocaleMenuConversation extends Conversation
             ]);*/
 
    foreach ($locals as $local) {
-       $question->addButton(Button::create($local)->value('joke'));
+       $question->addButton(Button::create($local)->value('silbo_1'));
    }
         return $this->ask($question, function (Answer $answer) {
             if ($answer->isInteractiveMessageReply()) {
@@ -32,7 +34,14 @@ class LocaleMenuConversation extends Conversation
                     $joke = json_decode(file_get_contents('http://api.icndb.com/jokes/random'));
                     $this->say($joke->value->joke);
                 } else {
-                    $this->say(Inspiring::quote());
+                    $foods = ["Погача","Ѓеврек","Дебармалски"];
+                    $question_foods = Question::create("Одберете од менито")
+                        ->fallback('Unable to ask question')
+                        ->callbackId('ask_foods');
+
+                    foreach ($foods as $local) {
+                        $question_foods->addButton(Button::create($local)->value('silbo_1'));
+                    }
                 }
             }
         });
