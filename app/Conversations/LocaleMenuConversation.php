@@ -2,7 +2,6 @@
 
 namespace App\Conversations;
 
-use Illuminate\Foundation\Inspiring;
 use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Question;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
@@ -34,6 +33,7 @@ class LocaleMenuConversation extends Conversation
                     $joke = json_decode(file_get_contents('http://api.icndb.com/jokes/random'));
                     $this->say($joke->value->joke);
                 } else {
+                    $this->say('Please choose from the menu');
                     $foods = ["Погача","Ѓеврек","Дебармалски"];
                     $question_foods = Question::create("Одберете од менито")
                         ->fallback('Unable to ask question')
