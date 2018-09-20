@@ -26,7 +26,7 @@ class LocaleMenuConversation extends Conversation
 
         return $this->ask($question, function (Answer $answer) {
             if ($answer->isInteractiveMessageReply()) {
-                $this->say('GOT TEST');
+                $this->say($answer->getValue());
             }
         });
     }
