@@ -24,9 +24,10 @@ class LocaleMenuConversation extends Conversation
                 Button::create('Tell a joke')->value('joke'),
             ]);*/
 
-   foreach ($locals as $local) {
-       $question->addButton(Button::create($local)->value('silbo_1'));
-   }
+           foreach ($locals as $local) {
+               $question->addButton(Button::create($local)->value('silbo_1'));
+           }
+
         return $this->ask($question, function (Answer $answer) {
             if ($answer->isInteractiveMessageReply()) {
                 if ($answer->getValue() === 'joke') {
