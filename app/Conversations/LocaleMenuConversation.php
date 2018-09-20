@@ -33,15 +33,16 @@ class LocaleMenuConversation extends Conversation
                     $joke = json_decode(file_get_contents('http://api.icndb.com/jokes/random'));
                     $this->say($joke->value->joke);
                 } else {
-                    $this->say('Please choose from the menu');
-                    $foods = ["Погача","Ѓеврек","Дебармалски"];
-                    $question_foods = Question::create("Одберете од менито")
-                        ->fallback('Unable to ask question')
-                        ->callbackId('ask_foods');
-
-                    foreach ($foods as $local) {
-                        $question_foods->addButton(Button::create($local)->value('silbo_1'));
-                    }
+                    $this->say("TEST");
+//                    $this->say('Please choose from the menu');
+//                    $foods = ["Погача","Ѓеврек","Дебармалски"];
+//                    $question_foods = Question::create("Одберете од менито")
+//                        ->fallback('Unable to ask question')
+//                        ->callbackId('ask_foods');
+//
+//                    foreach ($foods as $local) {
+//                        $question_foods->addButton(Button::create($local)->value('silbo_1'));
+//                    }
                 }
             }
         });
