@@ -59,9 +59,7 @@
         </div>
 
         <div class="links">
-            <h1>Welcome to Botsmot! {{config('botman.facebook.app_secret')}}</h1>
-            <h2>{{config('botman.facebook.token')}}</h2>
-            <h3>{{config('botman.facebook.verification')}}</h3>
+            <h1>Welcome to Botsmot!</h1>
         </div>
     </div>
 </div>
