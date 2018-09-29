@@ -15,8 +15,6 @@ class BotManController extends Controller
     public function handle()
     {
         $botman = app('botman');
-        error_log(serialize(request()->all()));
-        error_log("hello, this is a test!");
         $botman->listen();
     }
 
