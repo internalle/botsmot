@@ -34,7 +34,6 @@ class BotManController extends Controller
      */
     public function startConversation(BotMan $bot)
     {
-        error_log(serialize(request()->all()));
         $bot->startConversation(new ExampleConversation());
     }
 
