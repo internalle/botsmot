@@ -1,12 +1,16 @@
 <?php
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\BotManController;
+use BotMan\BotMan\BotMan;
+use Botman\BotMan\Messages;
 
 $botman = resolve('botman');
 
-$botman->hears('Hi', function ($bot) {
+$botman->hears('Hi', function (Botman $bot) {
 
-    $bot->reply(serialize($bot));
+    $storage = $bot->userStorage();
+    // Reply message object
+    $bot->reply(serialize($storage));
     $bot->reply('Hello!');
 });
 $botman->hears('.*(Play|Speak|play|speak).*', BotManController::class.'@startConversation');
